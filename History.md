@@ -1,3 +1,10 @@
+1.3.0 / 2016-05-30
+==================
+
+  * package: update "bindings" to v1.2.1
+  * package: update "debug" to v2.2.0
+  * package: update "nan" to v2.3.3
+  * package: update "readable-stream" to v2.1.4
 
 1.2.3 / 2015-09-08
 ==================
