@@ -52,7 +52,7 @@
 #ifdef HAVE_LIMITS_H
 #include <limits.h>
 #endif
- 
+
 #ifndef SIZE_MAX
 #define SIZE_MAX ((size_t)-1)
 #endif
@@ -75,6 +75,9 @@
 #ifdef HAVE_SYS_SELECT_H
 #include <sys/select.h>
 #endif
+
+/* compat_open makes little sense without */
+#include <fcntl.h>
 
 /* To parse big numbers... */
 #ifdef HAVE_ATOLL
@@ -174,5 +177,13 @@ int win32_utf8_wide(const char *const mbptr, wchar_t **wptr, size_t *buflen);
 #ifdef __KLIBC__
 typedef int socklen_t;
 #endif
+
+/* OSX SDK defines an enum with "normal" as value. That clashes with
+   optimize.h */
+#ifdef __APPLE__
+#define normal mpg123_normal
+#endif
+
+#include "true.h"
 
 #endif

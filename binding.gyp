@@ -15,11 +15,12 @@
         'deps/mpg123/mpg123.gyp:mpg123'
       ],
       'conditions':[
-        ['OS=="win"', { 
-        'defines':[
-          'NOMINMAX'
+        [
+          'OS=="win"',
+          {
+            'defines':['NOMINMAX']
+          }
         ]
-        }]
       ]
     }
   ]

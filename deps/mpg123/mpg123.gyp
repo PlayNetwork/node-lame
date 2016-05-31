@@ -133,6 +133,7 @@
             'REAL_IS_FLOAT',
           ],
           'sources': [
+            'src/libmpg123/dct36_x86_64.S',
             'src/libmpg123/dct64_x86_64.S',
             'src/libmpg123/dct64_x86_64_float.S',
             'src/libmpg123/synth_s32.c',
@@ -216,6 +217,14 @@
           'link_settings': {
             'libraries': [
               '-lwinmm.lib',
+            ],
+          }
+        }],
+        ['mpg123_backend=="pulse"', {
+          'link_settings': {
+            'libraries': [
+              '-lpulse',
+              '-lpulse-simple',
             ],
           }
         }],
