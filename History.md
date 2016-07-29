@@ -2,6 +2,7 @@
 ==================
 
 * removed dependency "readable-stream"
+* switched default build target to "Release"
 
 1.4.0 / 2016-05-31
 ==================
