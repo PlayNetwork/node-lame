@@ -1,7 +1,8 @@
 1.4.2 / 2017-02-07
 ==================
 
-* exposed `pause` and `resume` through decoder
+* adjusted decoder control flow for readability
+* exposed `close` method to cleanup resources used by decoder
 
 1.4.1 / 2016-07-29
 ==================
