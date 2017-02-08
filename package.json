@@ -10,7 +10,7 @@
     "encode",
     "decode"
   ],
-  "version": "1.3.0",
+  "version": "1.4.2",
   "author": "Nathan Rajlich <nathan@tootallnate.net> (http://tootallnate.net)",
   "license": "MIT",
   "repository": {
