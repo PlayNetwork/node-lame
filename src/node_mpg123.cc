@@ -42,7 +42,11 @@ NAN_METHOD(node_mpg123_init) {
 }
 
 
-NAN_METHOD(node_mpg123_exit) {
+NAN_METHOD(node_mpg123_safe_exit) {
+  UNWRAP_MH;
+
+  mpg123_meta_free(mh);
+  mpg123_delete(mh);
   mpg123_exit();
 }
 
@@ -484,7 +488,7 @@ void InitMPG123(Handle<Object> target) {
   CONST_INT(MPG123_NEW_ICY);
 
   Nan::SetMethod(target, "mpg123_init", node_mpg123_init);
-  Nan::SetMethod(target, "mpg123_exit", node_mpg123_exit);
+  Nan::SetMethod(target, "mpg123_safe_exit", node_mpg123_safe_exit);
   Nan::SetMethod(target, "mpg123_new", node_mpg123_new);
   Nan::SetMethod(target, "mpg123_decoders", node_mpg123_decoders);
   Nan::SetMethod(target, "mpg123_current_decoder", node_mpg123_current_decoder);
