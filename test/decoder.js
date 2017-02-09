@@ -65,7 +65,7 @@ describe('Decoder', function () {
 
     it('should emit a single "id3v1" event', function (done) {
       var file = fs.createReadStream(filename);
-      var decoder = new lame.Decoder();
+      var decoder = new lame.Decoder({ id3 : true });
       decoder.on('id3v1', function (id3) {
         assert.equal(title, id3.title);
         assert.equal(artist, id3.artist);
@@ -84,7 +84,7 @@ describe('Decoder', function () {
 
     it('should emit a single "id3v2" event', function (done) {
       var file = fs.createReadStream(filename);
-      var decoder = new lame.Decoder();
+      var decoder = new lame.Decoder({ id3 : true });
       decoder.on('id3v2', function (id3) {
         assert.equal(title, id3.title);
         assert.equal(artist, id3.artist);
