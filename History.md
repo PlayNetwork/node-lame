@@ -3,17 +3,18 @@
 
 * adjusted decoder control flow for readability
 * exposed `close` method to cleanup resources used by decoder
+* added `id3` option (defaults to `false`) to constructor; when true, ID3 tags are read
 
 1.4.1 / 2016-07-29
 ==================
 
-* removed dependency "readable-stream"
-* switched default build target to "Release"
+* package: removed "readable-stream"
+* build target set to "Release"
 
 1.4.0 / 2016-05-31
 ==================
 
-* update mpg123 dependency to v1.22.4
+* dependency: update "mpg123" to v1.22.4
 
 1.3.0 / 2016-05-30
 ==================

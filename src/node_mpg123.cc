@@ -45,9 +45,17 @@ NAN_METHOD(node_mpg123_init) {
 NAN_METHOD(node_mpg123_safe_exit) {
   UNWRAP_MH;
 
+  Nan::TryCatch try_catch;
+
   mpg123_meta_free(mh);
   mpg123_delete(mh);
   mpg123_exit();
+
+  delete mh;
+
+  if (try_catch.HasCaught()) {
+    FatalException(try_catch);
+  }
 }
 
 
