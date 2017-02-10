@@ -7,7 +7,7 @@
         'src/node_lame.cc',
         'src/node_mpg123.cc'
       ],
-      "include_dirs" : [
+      'include_dirs' : [
         '<!(node -e "require(\'nan\')")'
       ],
       'dependencies': [

@@ -47,6 +47,7 @@ NAN_METHOD(node_mpg123_safe_exit) {
 
   Nan::TryCatch try_catch;
 
+  mpg123_close(mh);
   mpg123_meta_free(mh);
   mpg123_delete(mh);
   mpg123_exit();
@@ -223,6 +224,7 @@ void node_mpg123_feed_after (uv_work_t *req) {
 
   // cleanup
   r->callback.Reset();
+
   delete r;
 
   if (try_catch.HasCaught()) {
@@ -279,6 +281,7 @@ void node_mpg123_read_after (uv_work_t *req) {
 
   // cleanup
   r->callback.Reset();
+
   delete r;
 
   if (try_catch.HasCaught()) {
