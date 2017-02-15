@@ -224,7 +224,7 @@ void node_mpg123_feed_after (uv_work_t *req) {
 
   // cleanup
   r->callback.Reset();
-
+  r->in = NULL;
   delete r;
 
   if (try_catch.HasCaught()) {
@@ -281,7 +281,7 @@ void node_mpg123_read_after (uv_work_t *req) {
 
   // cleanup
   r->callback.Reset();
-
+  r->out = NULL;
   delete r;
 
   if (try_catch.HasCaught()) {
