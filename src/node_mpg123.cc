@@ -73,6 +73,15 @@ NAN_METHOD(node_mpg123_new) {
   }
 }
 
+NAN_METHOD(node_mpg123_set_volume) {
+  UNWRAP_MH;
+
+  int error = MPG123_OK;
+  double volume = Nan::To<double>(info[1]).FromMaybe(0);
+
+  error = mpg123_volume(mh, volume);
+  info.GetReturnValue().Set(Nan::New<Integer>(error));
+}
 
 NAN_METHOD(node_mpg123_current_decoder) {
   UNWRAP_MH;
@@ -501,6 +510,7 @@ void InitMPG123(Handle<Object> target) {
   Nan::SetMethod(target, "mpg123_init", node_mpg123_init);
   Nan::SetMethod(target, "mpg123_safe_exit", node_mpg123_safe_exit);
   Nan::SetMethod(target, "mpg123_new", node_mpg123_new);
+  Nan::SetMethod(target, "mpg123_set_volume", node_mpg123_set_volume);
   Nan::SetMethod(target, "mpg123_decoders", node_mpg123_decoders);
   Nan::SetMethod(target, "mpg123_current_decoder", node_mpg123_current_decoder);
   Nan::SetMethod(target, "mpg123_supported_decoders", node_mpg123_supported_decoders);
